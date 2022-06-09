@@ -289,6 +289,7 @@ export const TABLE_DELETE_ROW_COLUMN_INNER_BUTTON = css`
 export const TABLE_WITH_CONTROLLERS = css`
   /* Space for marks */
   margin-top: 40px;
+  margin-bottom: 40px;
 
   /* To make controller's 'height: 100%' works, table must set its own height. */
   height: 1px;

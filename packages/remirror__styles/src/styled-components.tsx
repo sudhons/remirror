@@ -4009,6 +4009,7 @@ export const extensionTablesStyledCss: ReturnType<typeof css> = css`
   .remirror-table-with-controllers {
     /* Space for marks */
     margin-top: 40px;
+    margin-bottom: 40px;
 
     /* To make controller's 'height: 100%' works, table must set its own height. */
     height: 1px;
