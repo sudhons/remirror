@@ -1310,6 +1310,7 @@ importers:
     specifiers:
       '@babel/runtime': ^7.13.10
       '@remirror/core': ^2.0.0-beta.0
+      '@remirror/extension-react-tables': ^2.0.0-beta.0
       '@remirror/messages': ^2.0.0-beta.0
       '@remirror/pm': ^2.0.0-beta.0
       '@types/marked': ^4.0.2
@@ -1327,6 +1328,7 @@ importers:
       turndown: 7.1.1
       turndown-plugin-gfm: 1.0.2
     devDependencies:
+      '@remirror/extension-react-tables': link:../remirror__extension-react-tables
       '@remirror/pm': link:../remirror__pm
 
   packages/remirror__extension-mention:
