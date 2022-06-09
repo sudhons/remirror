@@ -1,5 +1,5 @@
 import { marks, nodes } from 'prosemirror-schema-basic';
-import { tableNodes } from 'prosemirror-tables';
+import { tableNodes } from 'prosemirror-tables-ts';
 import { ExtensionTag } from '@remirror/core-constants';
 import { MarkSpec, NodeSpec, Schema } from '@remirror/pm/model';
 import {
