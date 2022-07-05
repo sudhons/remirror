@@ -11,11 +11,9 @@ import React, {
   useContext,
   useMemo,
 } from 'react';
-import { Provider as ReakitProvider } from 'reakit';
+import { createTheme, ThemeProvider as MuiThemeProvider } from '@mui/material';
 import { cx, deepMerge } from '@remirror/core';
-import { createThemeVariables, CSSProperties, RemirrorThemeType, THEME } from '@remirror/theme';
-
-import * as system from '../reakit-system';
+import { createThemeVariables, CSSProperties, defaultRemirrorTheme, RemirrorThemeType, THEME } from '@remirror/theme';
 
 const ThemeContext = createContext<RemirrorThemeType>({});
 
@@ -69,15 +67,30 @@ export interface ThemeProviderProps extends UseThemeProps {
  */
 export const ThemeProvider = (props: ThemeProviderProps): ReactElement<ThemeProviderProps> => {
   const { children, as: Component = 'div' } = props;
-  const { theme, style, className } = useTheme({ theme: props.theme });
+  const { theme, style, className } = useTheme({ theme: props.theme ?? defaultRemirrorTheme });
+
+  const muiTheme = createTheme({
+    palette: {
+      primary: {
+        main: theme.color?.primary as string,
+        dark: theme.color?.hover?.primary as string,
+        contrastText: theme.color?.primaryText as string,
+      },
+      secondary: {
+        main: theme.color?.secondary as string,
+        dark: theme.color?.hover?.secondary as string,
+        contrastText: theme.color?.secondaryText as string,
+      },
+    },
+  });
 
   return (
-    <ReakitProvider unstable_system={system}>
+    <MuiThemeProvider theme={muiTheme}>
       <ThemeContext.Provider value={theme}>
         <Component style={style} className={className}>
           {children}
         </Component>
       </ThemeContext.Provider>
-    </ReakitProvider>
+    </MuiThemeProvider>
   );
 };
